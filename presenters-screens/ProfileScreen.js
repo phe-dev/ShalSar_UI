@@ -11,7 +11,7 @@ import Pg2energyleftindicator from '../views/components/Page2/Pg2energyleftindic
 import Pg2mostvisitedrestaurant from '../views/components/Page2/Pg2mostvisitedrestaurant'
 import Pg2btnpremiumuser from '../views/components/Page2/Pg2btnpremiumuser'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-
+import Ripple from 'react-native-material-ripple';
 import  { useState, useEffect } from 'react';
 import { Animated } from 'react-native';
 
@@ -43,10 +43,12 @@ const FadeInView = (props) => {
 
 
 
-export default class ProfileScreen extends Component {
+export default function ProfileScreen ({navigation})
+{
+    const pressHandler= () => {
+      navigation.navigate('screen2');
+    }
 
-
-render(){
     return (
 <View style={{ flex: 1, }}>
 <FadeInView style={styles.container}>
@@ -76,6 +78,12 @@ render(){
               <View style={styles.box3}>
                   <Pg2txtsavedamount/>
               </View>
+              <View style={styles.premiumbtncontainer}>
+
+                      <Ripple style = {styles.button} onPress={pressHandler}>
+                        <Text style={styles.premiumbtn}>Get Premium</Text>
+                      </Ripple>
+              </View>
               <View style={styles.box4}>
                   <Pg2mostvisitedrestaurant/>
               </View>
@@ -89,7 +97,7 @@ render(){
 
 
     );
-  }
+
 }
 
 const styles = StyleSheet.create({
@@ -97,6 +105,23 @@ const styles = StyleSheet.create({
     backgroundColor:'#fff',
     flexDirection:'column',
     flex:1,
+
+  },
+  button: {
+    alignItems:'center',
+    justifyContent:'center',
+   overflow: 'hidden',
+   width:'88%',
+   height:50,
+   backgroundColor:'#FFC107',
+   borderRadius:10,
+
+  },
+  premiumbtn:
+  {
+    fontWeight:'bold',
+    color:'#212121',
+
   },
   text:
   {
@@ -109,7 +134,6 @@ const styles = StyleSheet.create({
   {
     flexDirection:'row',
     height:67,
-
 
 
   },
@@ -161,8 +185,19 @@ const styles = StyleSheet.create({
   },
   box3 :
   {
-    height:146,
 
+    flex:1,
+    justifyContent:'flex-end',
+    alignItems:'center',
+    height:123,
+
+  },
+  premiumbtncontainer:
+  {
+      justifyContent:'center',
+      alignItems:'center',
+      flex:1,
+      height:91,
   },
 
 

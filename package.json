@@ -19,6 +19,7 @@
     "@react-native-community/masked-view": "0.1.5",
     "@react-native-community/slider": "^2.0.8",
     "@react-navigation/bottom-tabs": "^5.0.1",
+    "@react-navigation/material-bottom-tabs": "^5.0.7",
     "@react-navigation/native": "^5.0.2",
     "@react-navigation/stack": "^5.0.5",
     "expo": "~36.0.0",
@@ -55,9 +56,11 @@
     "react-native-web": "~0.11.7",
     "react-native-webview": "^8.0.6",
     "react-navigation-animated-switch": "^0.4.1",
+    "react-navigation-fluid-transitions": "^0.3.2",
     "react-navigation-stack": "^2.1.1",
     "react-navigation-tabs": "^2.7.0",
     "react-navigation-transitions": "^1.0.12",
+    "rn-stack-router": "^1.0.0",
     "save": "^2.4.0",
     "util": "*"
   },
@@ -66,7 +69,7 @@
     "@iconify/icons-ic": "^1.0.8",
     "@iconify/react": "^1.1.1",
     "babel-preset-expo": "~8.0.0",
-    "react-native-paper": "2.1.3",
+    "react-native-paper": "^2.1.3",
     "react-navigation": "^4.1.1"
   },
   "private": true

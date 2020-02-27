@@ -43,7 +43,7 @@ export default Pg2energyleftindicator ;
 const styles = StyleSheet.create ({
 
    container: {
-     
+
     zIndex:1,
     alignItems: 'center',
    },

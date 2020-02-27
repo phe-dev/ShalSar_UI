@@ -8,6 +8,7 @@ import StoreScreen from '../presenters-screens/StoreScreen';
 import ProfileScreen from '../presenters-screens/ProfileScreen';
 import Restaurantstack from '../route/Restaurantstack';
 import Menustack from '../route/Menustack';
+import Profilestack from '../route/Profilestack';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -45,7 +46,7 @@ const BottomTabNavigator = createBottomTabNavigator
         }
     },
     Profile: {
-        screen: ProfileScreen,
+        screen: Profilestack,
         navigationOptions: {
             title: "Profile",
             tabBarIcon: ({ tintColor }) => (
@@ -78,10 +79,13 @@ const BottomTabNavigator = createBottomTabNavigator
 
 
   tabBarOptions: {
+          inactiveTintColor: '#9e9e9e',
           animationEnabled: true,
           activeTintColor: '#d63031',
    style: {
-     height: 70
+     height: 70,
+			borderTopColor: '#e0e0e0',
+
    },
    labelStyle:
    {

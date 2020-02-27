@@ -16,12 +16,13 @@ const screens = {
   Home:{
       screen:LoginScreen
   },
+
   AppNavigator:{
       screen:AppNavigator,
 
       navigationOptions:
       {
-        header: null,
+        headerShown: false,
       },
   },
 

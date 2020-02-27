@@ -22,14 +22,13 @@ import React, { useState, useEffect } from 'react';
 import { Animated } from 'react-native';
 import Menustack from './route/Menustack';
 import Restaurantstack from './route/Restaurantstack';
-import Homestack from './route/Homestack';
-
+import Profilestack from './route/Profilestack';
 
 export default function App() {
   return (
     <View style={styles.container}>
 
-    <Homestack/>
+    <AppNavigator/>
 
     </View>
   );

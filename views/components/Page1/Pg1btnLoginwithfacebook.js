@@ -27,7 +27,7 @@ const styles = StyleSheet.create ({
      justifyContent:'center',
      zIndex:1,
     overflow: 'hidden',
-    width: 187,
+    width: 220,
     height:50,
     borderRadius:10,
     backgroundColor: '#D63031',

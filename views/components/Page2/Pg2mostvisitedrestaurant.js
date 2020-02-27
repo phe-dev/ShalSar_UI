@@ -9,7 +9,12 @@ function Pg2mostvisitedrestaurant() {
 
     <View style= {styles.container}>
       <View style={styles.layer}>
+
+      <View style={styles.bar}>
+
+      </View>
         <Text style={styles.subheading}>Most Visited Restaurants</Text>
+
 
         <View style={styles.box1}>
                   <View style={styles.b1flex1}>
@@ -73,8 +78,7 @@ const styles = StyleSheet.create ({
    container: {
      marginBottom:20,
      fontSize:14,
-     marginTop:22,
-
+     marginTop:10,
     alignItems: 'center',
    },
    layer:
@@ -214,6 +218,14 @@ borderRadius:50,
   {
     fontWeight:'bold',
     fontSize:14,
+  },
+  bar:
+  {
+    marginTop:10,
+    width:25,
+    height:5,
+    borderRadius:100,
+    backgroundColor:'#757575',
   },
 
 
