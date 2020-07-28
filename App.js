@@ -21,6 +21,7 @@ import { AppLoading } from 'expo';
 import React, { useState, useEffect } from 'react';
 import { Animated } from 'react-native';
 import Menustack from './route/Menustack';
+import Homestack from './route/Homestack';
 import Restaurantstack from './route/Restaurantstack';
 import Profilestack from './route/Profilestack';
 
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
 
     justifyContent:'center',
     flex: 1,
-    backgroundColor: '#fff',
+
 
   },
 });

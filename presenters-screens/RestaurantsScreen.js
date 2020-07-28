@@ -1,5 +1,5 @@
 import React , {Component} from 'react';
-import { StyleSheet, Text, View,ScrollView,SafeAreaView,Alert } from 'react-native';
+import { StyleSheet, Text, View,ScrollView,SafeAreaView,Alert,TouchableOpacity,TouchableWithoutFeedback } from 'react-native';
 
 import Pg1btnLoginwithfacebook from '../views/components/Page1/Pg1btnLoginwithfacebook'
 import Pg1txtShalsar from '../views/components/Page1/Pg1txtShalsar'
@@ -80,8 +80,11 @@ export default function RestaurantsScreen ({navigation})
     const searchboxpressHandler= () => {
       navigation.navigate('ResultScreen');
     }
+    const detailpressHandler= () => {
+      navigation.navigate('DetailScreen');
+    }
   return (
-  <View style={{ flex: 1, }}>
+
     <FadeInView style={styles.container}>
       <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
 
@@ -106,7 +109,7 @@ export default function RestaurantsScreen ({navigation})
               <View style={styles.searchboxcontainer}>
                       <Ripple style={styles.layer} onPress={searchboxpressHandler} >
                         <View style={styles.searchbox1}>
-                          <Iconfont name="search" size={24} color="#757575"/>
+                          <Iconfont name="search" size={24} color="#bdbdbd"/>
                         </View>
                         <View style={styles.searchbox2}>
 
@@ -117,9 +120,11 @@ export default function RestaurantsScreen ({navigation})
                       </Ripple>
               </View>
 
-              <View style={styles.box2}>
-                <Pg3restaurantcard/>
+              <TouchableWithoutFeedback onPress={detailpressHandler} >
+              <View style={styles.box2} >
+                            <Pg3restaurantcard/>
               </View>
+              </TouchableWithoutFeedback>
               <View style={styles.box3}>
                 <Pg3restaurantcard/>
               </View>
@@ -131,7 +136,7 @@ export default function RestaurantsScreen ({navigation})
 
 
       </FadeInView>
-    </View>
+
 
 
 
@@ -153,14 +158,14 @@ const styles = StyleSheet.create({
   },
   layer:
   {
-
     alignItems:'center',
     overflow:'hidden',
-    borderRadius:20,
+    borderRadius:15,
     flexDirection:'row',
-    width:'90%',
-    height:55,
+    width:'92%',
+    height:50,
     backgroundColor:'#eee',
+    marginBottom:10,
   },
   searchbox1:{
     alignItems:'flex-end',
@@ -180,7 +185,7 @@ const styles = StyleSheet.create({
   subtext:
   {
       fontSize:14,
-      color:'#757575',
+      color:'#bdbdbd',
   },
   text:
   {
@@ -218,20 +223,17 @@ const styles = StyleSheet.create({
   },
   box2:
   {
-    marginTop:25,
+
+    marginBottom:10,
     flexDirection:'row',
     alignItems:'center',
     justifyContent:'center',
-
-
-
-
 
   },
 
   box3:
   {
-      marginTop:25,
+    marginBottom:10,
     flexDirection:'row',
     alignItems:'center',
     justifyContent:'center',

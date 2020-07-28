@@ -12,20 +12,19 @@ function Pg3restaurantcard() {
 
     <View style= {styles.container}>
         <View style={styles.card}>
-            <View style={styles.cardflex1}>
-                  <ImageBackground source={require('../../../assets/backgroundimage/shwebel.jpg')} style = {styles.background}>
-                  </ImageBackground>
-            </View>
-            <View style={styles.cardflex2}>
 
+          <ImageBackground source={require('../../../assets/backgroundimage/noodle.jpg')} style = {styles.background}>
+
+            <View style={styles.box}>
                 <Pg3restaurantcarddetail/>
-
             </View>
-            <View style={styles.cardflex3}>
 
-              <Pg3promotionbar/>
+          </ImageBackground>
 
-            </View>
+
+
+
+
 
 
         </View>
@@ -41,59 +40,44 @@ export default Pg3restaurantcard   ;
 const styles = StyleSheet.create ({
 
    container: {
-     flexDirection:'row',
-    zIndex:1,
+
+    flexDirection:'row',
     justifyContent:'center',
     alignItems: 'center',
    },
    background:
    {
 
-     width:"100%",
-     height:"100%",
-     borderTopLeftRadius: 20,
-     borderTopRightRadius: 20,
+     width:'100%',
+     height:320,
      overflow:'hidden',
-
+     borderRadius:10,
+     justifyContent:'flex-end',
 
 
    },
    card:
    {
-
-      backgroundColor:'#fff',
+     justifyContent:'center',
+     alignItems: 'center',
+     borderRadius:10,
       flexDirection:'column',
       width:'95%',
-      height:470,
-      borderRadius:20,
-      shadowColor: '#212121',
-      shadowOffset: { width: 0, height: 1 },
-      shadowOpacity: 0.18,
-      shadowRadius: 2,
-      elevation: 5,
+      maxWidth:375,
+      shadowColor: "#000",
+shadowOffset: {
+	width: 0,
+	height: 1,
+},
+shadowOpacity: 0.20,
+shadowRadius: 1.41,
 
-   },
-   cardflex1:
-   {
-      flex:3,
+elevation: 2,
 
 
+    },
 
-   },
-   cardflex2:
-   {
-      marginLeft:19,
-      flex:2,
-      justifyContent:'center',
-   },
-   cardflex3:
-   {
-     
-     marginBottom:3,
-     alignItems:'center',
-     justifyContent:'center',
-     height:50,
-   },
+
 
 
 })

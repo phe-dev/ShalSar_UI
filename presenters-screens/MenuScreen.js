@@ -170,6 +170,7 @@ export default function MenuScreen ({navigation})
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor:'blue',
     flex:1,
     flexDirection:'column',
   },

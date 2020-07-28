@@ -1,52 +1,39 @@
-import React from 'react';
-import { TouchableOpacity, StyleSheet, Text , View} from 'react-native';
+import React, { Component } from 'react';
+
+import { TouchableOpacity, StyleSheet, Text , View, ImageBackground} from 'react-native';
+import { BlurView } from 'expo-blur';
 import { Button } from 'react-native'
 import Ripple from 'react-native-material-ripple';
+import Icons from 'react-native-vector-icons/FontAwesome';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Iconfont from 'react-native-vector-icons/MaterialIcons';
 import Pg3promotionbar from './Pg3promotionbar'
+
 
 
 function Pg3restaurantcarddetail() {
   return (
 
 
-        <View style={styles.layer}>
-                <View style={styles.box1}>
-                    <Text style={styles.subheading}>Golden Duck</Text>
-                </View>
-                <View style={styles.box2}>
+        <View style={styles.container}>
+            <View style={styles.detailcard}>
+                  <View style={styles.box2}>
+                        <View style={styles.box2flex1}>
+                            <Text style={styles.headertext}>Beauty in the pot</Text>
 
-                </View>
-                <View style={styles.box3}>
-                      <View style={styles.b3flex1}>
-                            <View style={styles.b3f1div1}>
-                                <Text style={styles.text}>Location</Text>
+                        </View>
+                        <View style={styles.box2flex2}>
 
-                            </View>
-                            <View style={styles.b3f1div2}>
-                                <Text style={styles.text}>8 miles</Text>
+                        <Text style={styles.subtext}>8 miles</Text>
 
-                            </View>
-                      </View>
-                      <View style={styles.b3flex2}>
-                            <View style={styles.b3f2div1}>
-                                <Text style={styles.text}>Minimum Dining</Text>
-                            </View>
-                            <View style={styles.b3f2div2}>
-                                <Text style={styles.text}>35000MMK</Text>
-                            </View>
-                      </View>
-                      <View style={styles.b3flex3}>
-                            <View style={styles.b3f3div1}>
-                                <Text style={styles.text}>Number of time visited</Text>
-                            </View>
-                            <View style={styles.b3f3div2}>
-                                <Text style={styles.text}>3</Text>
-                            </View>
-                      </View>
-                </View>
+                        </View>
 
+                  </View>
+                  <View style={styles.box3}>
+                        <Icon style={styles.icon} name="bookmark-outline" size={24} color="#121212"/>
+                  </View>
+
+            </View>
         </View>
 
 
@@ -57,104 +44,87 @@ export default Pg3restaurantcarddetail;
 
 
 const styles = StyleSheet.create ({
+  container: {
 
-   subheading:
+    justifyContent:'center',
+    alignItems:'center',
+
+
+  },
+  detailcard:
+  {
+
+    backgroundColor:'#fff',
+    flexDirection:'row',
+    height:80,
+    borderWidth:0,
+
+  },
+  box1:
+  {
+    marginLeft:15,
+    justifyContent:'center',
+    flex:1,
+
+  },
+  box2:
+  {
+    marginLeft:15,
+    justifyContent:'center',
+    flex:4,
+
+
+  },
+  box2flex1:
+  {
+    flex:1,
+    marginBottom:2,
+    justifyContent:'flex-end',
+
+
+
+  },
+  box2flex2:
+  {
+
+    flex:1,
+    marginTop:2,
+    justifyContent:'flex-start',
+
+
+
+
+  },
+  box3:
+  {
+    alignItems:'flex-end',
+    marginRight:11,
+    justifyContent:'center',
+    flex:1,
+
+  },
+
+
+  background:
+  {
+
+    borderRadius:100,
+    overflow:'hidden',
+    width:45,
+    height:45,
+  },
+   headertext:
    {
-      fontWeight:'bold',
-      fontSize:24,
-      color:'#212121',
+     fontWeight:'bold',
+      fontSize:16,
+      color:'#121212',
    },
-   text:
+   subtext:
    {
+
       fontSize:14,
-      color:'#212121',
+      color:'#757575',
    },
-   layer:
-   {
-
-     flexDirection:'column',
-     width:"100%",
-     height:165,
-
-
-
-   },
-   box1:
-   {
-     justifyContent:'flex-end',
-    flex:2,
-
-   },
-   box2:
-   {
-      flex:1,
-
-
-   },
-   box3:
-   {
-      flexDirection:'column',
-      flex:5,
-
-
-   },
-   b3flex1:
-   {
-     flexDirection:'row',
-      flex:1,
-
-   },
-       b3f1div1:
-       {
-          flex:2,
-
-
-
-       },
-       b3f1div2:
-       {
-         flex:1,
-
-
-       },
-   b3flex2:
-   {
-     flexDirection:'row',
-      flex:1,
-
-   },
-       b3f2div1:
-       {
-          flex:2,
-
-
-
-       },
-       b3f2div2:
-       {
-         flex:1,
-
-
-
-       },
-   b3flex3:
-   {
-     flexDirection:'row',
-      flex:1,
-
-   },
-       b3f3div1:
-       {
-          flex:2,
-
-
-
-       },
-       b3f3div2:
-       {
-         flex:1,
-
-       },
 
 
 

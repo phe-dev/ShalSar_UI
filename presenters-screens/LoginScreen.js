@@ -1,5 +1,5 @@
 import React , {Component} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 
 import Pg1btnLoginwithfacebook from '../views/components/Page1/Pg1btnLoginwithfacebook'
 import Pg1txtShalsar from '../views/components/Page1/Pg1txtShalsar'
@@ -9,7 +9,14 @@ import Pg2txtprofilename from '../views/components/Page2/Pg2txtprofilename'
 import Pg2txtsavedamount from '../views/components/Page2/Pg2txtsavedamount'
 import Pg2energyleftindicator from '../views/components/Page2/Pg2energyleftindicator'
 import Pg2mostvisitedrestaurant from '../views/components/Page2/Pg2mostvisitedrestaurant'
-
+import Pg3restaurantcard from '../views/components/Page3/Pg3restaurantcard'
+import Pg3restaurantcarddetail from '../views/components/Page3/Pg3restaurantcarddetail'
+import MenuCard from '../views/components/Menu/MenuCard'
+import FeaturedCarddetail from '../views/components/Menu/FeaturedCarddetail'
+import MenuList from '../views/components/Menu/MenuList'
+import Pg4reviewcard from '../views/components/Page4/Pg4reviewcard'
+import ParallaxScrollView from 'react-native-parallax-scroll-view';
+import Parallax from 'react-native-scroll-view-parallax'
 
 LoginScreen.navigationOptions={
 
@@ -24,16 +31,7 @@ export default function LoginScreen ({navigation})
 {
     return (
 
-      <View style={styles.container}>
-
-      <Pg1Backgroundimage/>
-
-
-      </View>
-
-
-
-
+    <MenuList/>
 
 
     );
@@ -47,4 +45,16 @@ const styles = StyleSheet.create({
     alignItems:'center',
 
   },
+  background:
+  {
+    justifyContent:'flex-end',
+    width:'100%',
+    height:'100%',
+  },
+  card:
+  {
+    backgroundColor:'#fff',
+    width:'100%',
+    height:150,
+  }
 });

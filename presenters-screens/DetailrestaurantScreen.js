@@ -1,170 +1,191 @@
-
-'use strict';
-
-import React , {Component} from 'react';
-import { StyleSheet, Text, View,SafeAreaView } from 'react-native';
-import {QRCode} from 'react-native-custom-qr-codes-expo';
-
-import Pg1btnLoginwithfacebook from '../views/components/Page1/Pg1btnLoginwithfacebook'
-import Pg1txtShalsar from '../views/components/Page1/Pg1txtShalsar'
-import Pg1Backgroundimage from '../views/components/Page1/Pg1Backgroundimage'
-import Pg2profile from '../views/components/Page2/Pg2profile'
-import Pg2txtprofilename from '../views/components/Page2/Pg2txtprofilename'
-import Pg2txtsavedamount from '../views/components/Page2/Pg2txtsavedamount'
-import Pg2energyleftindicator from '../views/components/Page2/Pg2energyleftindicator'
-import Pg2mostvisitedrestaurant from '../views/components/Page2/Pg2mostvisitedrestaurant'
-
-import Pg3searchbox from '../views/components/Page3/Pg3searchbox'
-import Pg3restaurantcard from '../views/components/Page3/Pg3restaurantcard'
-import Pg3restaurantcarddetail from '../views/components/Page3/Pg3restaurantcarddetail'
-import Pg5btnaboutus from '../views/components/Page5/Pg5btnaboutus'
-
-import Pg5btnlogout from '../views/components/Page5/Pg5btnlogout'
-import Pg4btnmore from '../views/components/Page4/Pg4btnmore'
-import Pg4btnfavouriteandsave from '../views/components/Page4/Pg4btnfavouriteandsave'
+import React from 'react';
+import { TouchableOpacity, StyleSheet, Text , View, ImageBackground, Animated, ScrollView, QRCode,SafeAreaView,SwipeHiddenHeader,Dimensions,FadeInView } from 'react-native';
+import { Button } from 'react-native'
+import Ripple from 'react-native-material-ripple';
 import Pg4imagebanner from '../views/components/Page4/Pg4imagebanner'
+import Pg4reviewcard from '../views/components/Page4/Pg4reviewcard'
+import ParallaxScrollView from 'react-native-parallax-scroll-view';
+import Parallax from 'react-native-scroll-view-parallax';
+import StickyParallaxHeader from 'react-native-sticky-parallax-header'
 import Icon from 'react-native-vector-icons/Ionicons';
-import Pg4QRscanner from '../views/components/Page4/Pg4QRscanner'
+import { useNavigation } from '@react-navigation/native';
+import Editpgeditprofile from '../views/components/EditprofilePage/Editpgeditprofile'
+import Editpgemailbox from '../views/components/EditprofilePage/Editpgemailbox'
+import Editpgphbox from '../views/components/EditprofilePage/Editpgphbox'
+import Scrollablemenucard from '../views/components/Menu/Scrollablemenucard'
+import MenuList from '../views/components/Menu/MenuList'
+
+import Editpgbtnupdate from '../views/components/EditprofilePage/Editpgbtnupdate'
+import { TabView, SceneMap } from 'react-native-tab-view';
+import { TabBar } from 'react-native-tab-view';
 
 
+DetailrestaurantScreen.navigationOptions={
 
-
-
-
-
-export default class DetailrestaurantScreen extends Component {
-
-
-  render(){
-    return (
-
-
-            <View style={styles.container}>
-
-
-            <SafeAreaView style={styles.container}>
-
-
-
-                  <View style={styles.box1}>
-
-                          <View style={styles.b1flex1}>
-
-                              <Icon style={styles.icon} name="ios-arrow-back" size={24} color="#212121"/>
-
-                          </View>
-                          <View style={styles.b1flex2}>
-
-                                <Text style={styles.text}>365 Cafe</Text>
-
-                          </View>
-                          <View style={styles.b1flex3}>
-                                  <Pg4btnfavouriteandsave/>
-                          </View>
-
-
-                  </View>
-                    <View style={styles.box2}>
-                        <Pg4imagebanner/>
-                    </View>
-                    <View style={styles.box3}>
-                      <Text style={styles.subheading}>Scan Your QR Code</Text>
-                      <QRCode  size='180'   content='https://reactnative.com'/>
-
-                    </View>
-                    <View style={styles.box4}>
-                        <Pg4btnmore/>
-                    </View>
-
-           </SafeAreaView>
-
-
-            </View>
-
-
-
-
-
-
-
-
-    );
+  headerShown: false,
+  cardStyle:{
+    backgroundColor:'#fff',
   }
 }
 
+const FirstRoute = () => (
+  <ScrollView>
+      <Pg4reviewcard/>
+      <Pg4reviewcard/>
+      <Pg4reviewcard/>
+  </ScrollView>
+);
+
+const SecondRoute = () => (
+  <ScrollView>
+
+      <Scrollablemenucard/>
+      <MenuList/>
+
+  </ScrollView>
+);
+const ThirdRoute = () => (
+  <ScrollView>
+    <Pg4imagebanner/>
+  </ScrollView>
+);
+
+
+const initialLayout = { width: Dimensions.get('window').width };
+const renderTabBar = props => (
+  <View  style={styles.tabbarcontainer}>
+  <TabBar
+    {...props}
+    activeColor={'#D63031'}
+    inactiveColor={'#757575'}
+    indicatorStyle={styles.indicatorbar}
+    style={styles.tabbar}
+  />
+  </View>
+);
+export default function DetailrestaurantScreen({navigation}) {
+  const [index, setIndex] = React.useState(0);
+  const [routes] = React.useState([
+    { key: 'first', title: 'Review' },
+    { key: 'second', title: 'Menu' },
+    { key: 'third', title: 'QR' },
+  ]);
+
+  const renderScene = SceneMap({
+    first: FirstRoute,
+    second: SecondRoute,
+    third:ThirdRoute
+  });
+  const pressHandler= () => {
+    navigation.goBack();
+  }
+  return (
+
+    <SafeAreaView style={styles.container}>
+    <View style={styles.heading}>
+          <TouchableOpacity style={styles.back} onPress={pressHandler}>
+              <Icon style={styles.backicon} name="ios-arrow-back" size={24} color="#212121"/>
+          </TouchableOpacity>
+          <View style={styles.headertext}>
+              <Text style={styles.restaurantname}>Beauty In The Pot</Text>
+          </View>
+          <View style={styles.space}>
+
+          </View>
+
+
+
+      </View>
+    <TabView
+      style={styles.tabviewcontainer}
+      navigationState={{ index, routes }}
+      renderScene={renderScene}
+      renderTabBar={renderTabBar}
+      onIndexChange={setIndex}
+      initialLayout={initialLayout}
+
+    />
+
+
+    </SafeAreaView>
+
+
+
+
+  );
+
+
+
+}
+
 const styles = StyleSheet.create({
+
   container: {
     flex:1,
-    flexDirection:'column',
-  },
-  text:
-  {
-    fontSize:34,
-    fontWeight:'bold',
 
-  },
-  box1:
+},
+  tabbarcontainer:
   {
+
     flexDirection:'row',
-    height:67,
-
-
-
-  },
-        b1flex1:
-        {
-          marginLeft:19,
-          flex:1,
-          justifyContent:'center',
-
-        },
-        b1flex2:
-        {
-
-          flex:7,
-
-          alignItems:'flex-start',
-          justifyContent:'center',
-
-
-        },
-        b1flex3:
-        {
-          marginRight:19,
-          flex:2,
-
-          alignItems:'flex-end',
-          justifyContent:'center',
-
-
-        },
-  box2:
-  {
-
-
-    flex:1,
-
-
-  },
-  box3:
-  {
-    flex:1,
     alignItems:'center',
     justifyContent:'center',
+  },
+  tabbar:{
+
+    justifyContent:'center',
+    backgroundColor:'#f5f5f5',
+    borderRadius:8,
+    width:'90%',
+    height:55,
+    marginBottom:15,
+
+  },
+  indicatorbar:
+  {
+
+    borderBottomColor:'#D63031',
+    borderBottomWidth:3,
+    borderRadius:10,
+    backgroundColor:'blue',
 
 
   },
-  box4:
+  scene: {
+    flex: 1,
+  },
+  heading:
+  {
+    flexDirection:'row',
+    width:'100%',
+    height:66,
+    alignItems:'center',
+    justifyContent:'center',
+  },
+  restaurantname:
+  {
+    fontWeight:'bold',
+    fontSize:24,
+  },
+  back:
   {
     flex:1,
-    alignItems:'center',
-    justifyContent:'flex-end',
-
 
   },
-  subheading:
+  headertext:
   {
-      fontWeight:'bold',
+    alignItems:'center',
+    flex:5,
+
+  },
+  space:
+  {
+    flex:1,
+
+  },
+  backicon:
+  {
+    marginLeft:16,
   },
 
 });

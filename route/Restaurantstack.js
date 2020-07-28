@@ -4,7 +4,7 @@ import {createAppContainer} from 'react-navigation';
 import RestaurantsScreen from '../presenters-screens/RestaurantsScreen';
 import CategoryScreen from '../presenters-screens/CategoryScreen';
 import ResultScreen from '../presenters-screens/ResultScreen';
-
+import DetailrestaurantScreen from '../presenters-screens/DetailrestaurantScreen';
 
 
 
@@ -16,6 +16,21 @@ const screens = {
   screen1:{
     screen:RestaurantsScreen
   },
+  DetailScreen:
+  {
+    screen : DetailrestaurantScreen,
+    navigationOptions:
+    {
+      headerShown: false,
+      cardStyle:{
+        backgroundColor:'#fff',
+      }
+
+    },
+
+
+
+  },
   screen2:{
     screen:CategoryScreen
   },
@@ -24,6 +39,8 @@ const screens = {
     screen:ResultScreen
 
   },
+
+
 
 
 }
